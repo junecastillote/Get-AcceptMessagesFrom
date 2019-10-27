@@ -21,8 +21,8 @@ Get-AcceptMessagesFrom.ps1 [-InputObject] <Object> [-ExpandGroups] [-Unique <boo
 
 ## Links
 
-> [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom)
-> [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders-list/)
+- [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom)
+- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders-list/)
 
 ## Requirements
 
