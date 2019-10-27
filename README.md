@@ -28,8 +28,8 @@ Get-AcceptMessagesFrom.ps1
 
 ## Links
 
-- [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom "(target|_blank)")
-- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/)
+- <a href="https://github.com/junecastillote/Get-AcceptMessagesFrom" target="_blank">Repo: Get-AcceptMessagesFrom on GitHub</a>
+- <a href="https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/" target="_blank">Site: Generate a Report of Exchange Recipients Accepted Senders List</a>
 
 ## Requirements
 
