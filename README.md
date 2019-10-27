@@ -1,5 +1,7 @@
 # Get-AcceptMessagesFrom
 
+![](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/header1.png)
+
 When you need to export a list of accepted senders of any particular Exchange recipient object like a Distribution Group, Dynamic Distribution Group, Mailbox and Contact, usually you can use these commands:
 
 ```PowerShell
