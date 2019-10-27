@@ -15,7 +15,7 @@ Get-AcceptMessagesFrom.ps1 [-InputObject] <Object> [-ExpandGroups] [-Unique <boo
 
 ### Example 1
 
-Get all accepted senders of all dynamic distribution groups. Get all accepted senders of all dynamic distribution groups
+Get all accepted senders of all dynamic distribution groups. Groups are shows but and not expanded.
 
 ```PowerShell
 .\Get-AcceptMessagesFrom.ps1 -InputObject (Get-DynamicDistributionGroup DDL1) -verbose
@@ -25,7 +25,7 @@ Get all accepted senders of all dynamic distribution groups. Get all accepted se
 
 ### Example 2
 
-Get all accepted senders of all dynamic distribution groups. Groups are expanded and only shows members.
+Get all accepted senders of all dynamic distribution groups. Groups are expanded and only shows their members.
 
 ```PowerShell
 .\Get-AcceptMessagesFrom.ps1 -InputObject (Get-DynamicDistributionGroup) -Verbose -ExpandGroups | Format-Table
