@@ -4,9 +4,7 @@ When you need to export a list of accepted senders of any particular Exchange re
 
 `Get-DistributionGroup <GROUP> | Select-Object -ExpandProperty AcceptMessagesOnlyFromSendersOrMembers`
 
--OR-
-
-`(Get-Mailbox <MAILBOX>).AcceptMessagesOnlyFromSendersOrMembers`
+![AcceptMessagesOnlyFromSendersOrMembers](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/into1.png)
 
 But the `AcceptMessagesOnlyFromSendersOrMembers` property only contains the names.
 
