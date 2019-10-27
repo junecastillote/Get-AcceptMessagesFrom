@@ -24,12 +24,12 @@ Get-AcceptMessagesFrom.ps1 [-InputObject] <Object> [-ExpandGroups] [-Unique <boo
 ## Links
 
 - [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom)
-- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders-list/)
+- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/)
 
 ## Requirements
 
-1. PowerShell 5.1
-2. Established Remote PowerShell Session with Exchange Online (or On-Prem)
+- PowerShell 5.1
+- Established Remote PowerShell Session with Exchange Online (or On-Prem)
 
 ## How to use
 
