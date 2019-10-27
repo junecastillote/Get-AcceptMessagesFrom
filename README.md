@@ -18,6 +18,11 @@ You can also modify this scrip to add more properties to be returned as needed.
 
 Output can be exported to CSV, HTML, JSON, XML etc. using the standard PowerShell commands.
 
+## Links
+
+- [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom)
+- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/)
+
 ## Syntax
 
 ```PowerShell
@@ -27,11 +32,6 @@ Get-AcceptMessagesFrom.ps1
     [-Unique <bool>]
     [<CommonParameters>]
 ```
-
-## Links
-
-- [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom)
-- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/)
 
 ## Requirements
 
