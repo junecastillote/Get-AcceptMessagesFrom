@@ -1,4 +1,4 @@
-# Generate a Report of Exchange Recipients Accepted Senders List
+# Generate a Report of Exchange Recipients Accepted Senders
 
 When you need to export a list of accepted senders of any particular Exchange recipient object like Distribution Group, Dynamic Distribution Group, Mailbox and Contact, usually you can use these commands:
 
