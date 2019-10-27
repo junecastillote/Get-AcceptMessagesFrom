@@ -21,4 +21,4 @@ Get all accepted senders of a dynamic distribution group.
 .\Get-AcceptMessagesFrom.ps1 -InputObject (Get-DynamicDistributionGroup DDL1) -verbose
 ```
 
-![Example 1](https://github.com/junecastillote/Get-AcceptMessagesFrom/images/Example1.png)
+![Example 1](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/Example1.png)
