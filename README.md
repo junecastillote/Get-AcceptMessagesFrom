@@ -9,7 +9,7 @@ Get-DistributionGroup <GROUP> |
 
 But the `AcceptMessagesOnlyFromSendersOrMembers` property only contains the names, like you see in the screenshot below.
 
-![AcceptMessagesOnlyFromSendersOrMembers](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/intro1.png)
+![](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/intro1.png)
 
 This script expands the output by getting other properties of the sender object like email, name and title.
 You can also modify this scrip to add more properties to be returned as needed.
@@ -28,8 +28,8 @@ Get-AcceptMessagesFrom.ps1
 
 ## Links
 
-- <a href="https://github.com/junecastillote/Get-AcceptMessagesFrom" target="_blank">Repo: Get-AcceptMessagesFrom on GitHub</a>
-- <a href="https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/" target="_blank">Site: Generate a Report of Exchange Recipients Accepted Senders List</a>
+- [Repo: Get-AcceptMessagesFrom on GitHub](https://github.com/junecastillote/Get-AcceptMessagesFrom)
+- [Site: Generate a Report of Exchange Recipients Accepted Senders List](https://lazyexchangeadmin.com/generate-a-report-of-exchange-recipients-accepted-senders/)
 
 ## Requirements
 
@@ -46,7 +46,7 @@ Get all accepted senders of all dynamic distribution groups. Groups are shows bu
 .\Get-AcceptMessagesFrom.ps1 -InputObject (Get-DynamicDistributionGroup DDL1) -verbose
 ```
 
-![Example 1](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/Example1.png)
+![](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/Example1.png)
 
 ### Example 2
 
@@ -56,7 +56,7 @@ Get all accepted senders of all dynamic distribution groups. Groups are expanded
 .\Get-AcceptMessagesFrom.ps1 -InputObject (Get-DynamicDistributionGroup) -Verbose -ExpandGroups | Format-Table
 ```
 
-![Example 2](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/Example2.png)
+![](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/Example2.png)
 
 ## Parameters
 
