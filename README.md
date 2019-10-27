@@ -3,7 +3,8 @@
 When you need to export a list of accepted senders of any particular Exchange recipient object like a Distribution Group, Dynamic Distribution Group, Mailbox and Contact, usually you can use these commands:
 
 ```PowerShell
-Get-DistributionGroup <GROUP> | Select-Object -ExpandProperty AcceptMessagesOnlyFromSendersOrMembers
+Get-DistributionGroup <GROUP> |
+    Select-Object -ExpandProperty AcceptMessagesOnlyFromSendersOrMembers
 ```
 
 But the `AcceptMessagesOnlyFromSendersOrMembers` property only contains the names, like you see in the screenshot below.
@@ -18,7 +19,11 @@ Output can be exported to CSV, HTML, JSON, XML etc. using the standard PowerShel
 ## Syntax
 
 ```PowerShell
-Get-AcceptMessagesFrom.ps1 [-InputObject] <Object> [-ExpandGroups] [-Unique <bool>] [<CommonParameters>]
+Get-AcceptMessagesFrom.ps1
+    [-InputObject] <Object>
+    [-ExpandGroups]
+    [-Unique <bool>]
+    [<CommonParameters>]
 ```
 
 ## Links
