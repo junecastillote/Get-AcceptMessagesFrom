@@ -63,10 +63,10 @@ if (($InputObject | Get-Member).Name -notcontains 'AcceptMessagesOnlyFromSenders
 Function Get-MembersRecursive {
     param (
         [parameter()]
-        [string]$groupName
+        [string]$RecipientName
     )
     $groupMembers = @()
-    $group = Get-Group $groupName -ErrorAction SilentlyContinue
+    $group = Get-Group $RecipientName -ErrorAction SilentlyContinue
     foreach ($groupMember in $group.Members) {
         $memberObj = Get-Recipient $groupMember -ErrorAction SilentlyContinue
 
@@ -78,7 +78,7 @@ Function Get-MembersRecursive {
                 $groupMembers += (Get-MembersRecursive $groupMember)
             }
             else {
-                #$memberObj | Add-Member -MemberType NoteProperty -Name # SenderMemberOf -Value $groupName
+                #$memberObj | Add-Member -MemberType NoteProperty -Name # SenderMemberOf -Value $RecipientName
                 $groupMembers += $memberObj
             }
         }
@@ -108,8 +108,8 @@ foreach ($object in $InputObject) {
                     Write-Verbose "> [$($objClass)] | $($sender.Name)"
 
                     $properties = [ordered]@{
-                        GroupName      = $object.Name
-                        GroupEmail     = $object.PrimarySMTPAddress
+                        RecipientName      = $object.Name
+                        RecipientEmail     = $object.PrimarySMTPAddress
                         SenderName     = $sender.Name
                         SenderType     = $sender.RecipientTypeDetails
                         SenderEmail    = $sender.PrimarySMTPAddress
@@ -127,8 +127,8 @@ foreach ($object in $InputObject) {
                         ## add the group to the collection
 
                         $properties = [ordered]@{
-                            GroupName      = $object.Name
-                            GroupEmail     = $object.PrimarySMTPAddress
+                            RecipientName      = $object.Name
+                            RecipientEmail     = $object.PrimarySMTPAddress
                             SenderName     = $sender.Name
                             SenderType     = $sender.RecipientTypeDetails
                             SenderEmail    = $sender.PrimarySMTPAddress
@@ -149,8 +149,8 @@ foreach ($object in $InputObject) {
                             $objClass = $groupMember.ObjectClass[-1]
                             Write-Verbose "     > [$($objClass)] | $($groupMember.Name)"
                             $properties = [ordered]@{
-                                GroupName      = $object.Name
-                                GroupEmail     = $object.PrimarySMTPAddress
+                                RecipientName      = $object.Name
+                                RecipientEmail     = $object.PrimarySMTPAddress
                                 SenderName     = $groupMember.Name
                                 SenderType     = $groupMember.RecipientTypeDetails
                                 # SenderPermission = 'Inherited'
