@@ -1,8 +1,10 @@
-# Generate a Report of Exchange Recipients Accepted Senders
+# Get-AcceptMessagesFrom
 
-When you need to export a list of accepted senders of any particular Exchange recipient object like Distribution Group, Dynamic Distribution Group, Mailbox and Contact, usually you can use these commands:
+When you need to export a list of accepted senders of any particular Exchange recipient object like a Distribution Group, Dynamic Distribution Group, Mailbox and Contact, usually you can use these commands:
 
-`Get-DistributionGroup <GROUP> | Select-Object -ExpandProperty AcceptMessagesOnlyFromSendersOrMembers`
+```PowerShell
+Get-DistributionGroup <GROUP> | Select-Object -ExpandProperty AcceptMessagesOnlyFromSendersOrMembers
+```
 
 ![AcceptMessagesOnlyFromSendersOrMembers](https://github.com/junecastillote/Get-AcceptMessagesFrom/blob/master/images/intro1.png)
 
@@ -88,9 +90,9 @@ Accept pipeline input: False
 
 ## Properties
 
-* RecipientName
-* RecipientEmail
-* SenderName
-* SenderEmail
-* SenderType
-* SenderJobTitle
+- RecipientName
+- RecipientEmail
+- SenderName
+- SenderEmail
+- SenderType
+- SenderJobTitle
