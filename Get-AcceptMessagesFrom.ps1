@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.0
+.VERSION 1.0.1
 
 .GUID c7d3eeae-4307-4737-a36a-c7b1f14c197b
 
@@ -15,7 +15,7 @@
 
 .LICENSEURI
 
-.PROJECTURI https://github.com/junecastillote/Get-ExoAcceptMailFrom
+.PROJECTURI https://github.com/junecastillote/Get-AcceptMessagesFrom
 
 .ICONURI
 
@@ -78,7 +78,6 @@ Function Get-MembersRecursive {
                 $groupMembers += (Get-MembersRecursive $groupMember)
             }
             else {
-                #$memberObj | Add-Member -MemberType NoteProperty -Name # SenderMemberOf -Value $RecipientName
                 $groupMembers += $memberObj
             }
         }
@@ -164,6 +163,17 @@ foreach ($object in $InputObject) {
                 }
             }
         }
+    }
+    else {
+        $properties = [ordered]@{
+            RecipientName      = $object.Name
+            RecipientEmail     = $object.PrimarySMTPAddress
+            SenderName     = ''
+            SenderType     = ''
+            SenderEmail    = ''
+            SenderJobTitle = ''
+        }
+        $finalResult += (New-Object psobject -Property $properties)
     }
     ## increment counter
     $i = $i + 1
