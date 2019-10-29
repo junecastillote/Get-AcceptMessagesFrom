@@ -81,7 +81,6 @@ Function Get-MembersRecursive {
                 $groupMembers += $memberObj
             }
         }
-
     }
     $groupMembers = $groupMembers | Sort-Object -Property Name -Unique
     return $groupMembers
@@ -113,8 +112,6 @@ foreach ($object in $InputObject) {
                         SenderType     = $sender.RecipientTypeDetails
                         SenderEmail    = $sender.PrimarySMTPAddress
                         SenderJobTitle = $sender.Title
-                        # SenderPermission = 'Direct'
-                        # SenderMemberOf   = ''
                     }
                     $finalResult += (New-Object psobject -Property $properties)
                 }
@@ -132,8 +129,6 @@ foreach ($object in $InputObject) {
                             SenderType     = $sender.RecipientTypeDetails
                             SenderEmail    = $sender.PrimarySMTPAddress
                             SenderJobTitle = 'Not Applicable'
-                            # SenderPermission = 'Direct'
-                            # SenderMemberOf   = 'Not Applicable'
                         }
                         $finalResult += (New-Object psobject -Property $properties)
                     }
@@ -152,10 +147,8 @@ foreach ($object in $InputObject) {
                                 RecipientEmail     = $object.PrimarySMTPAddress
                                 SenderName     = $groupMember.Name
                                 SenderType     = $groupMember.RecipientTypeDetails
-                                # SenderPermission = 'Inherited'
                                 SenderEmail    = $groupMember.PrimarySMTPAddress
                                 SenderJobTitle = $groupMember.Title
-                                # SenderMemberOf   = $groupMember.# SenderMemberOf
                             }
                             $finalResult += (New-Object psobject -Property $properties)
                         }
@@ -165,11 +158,13 @@ foreach ($object in $InputObject) {
         }
     }
     else {
+        Write-Verbose "> [No Sender Restrictions]"
         $properties = [ordered]@{
             RecipientName      = $object.Name
             RecipientEmail     = $object.PrimarySMTPAddress
             SenderName     = ''
             SenderType     = ''
+            SenderPermission = ''
             SenderEmail    = ''
             SenderJobTitle = ''
         }
@@ -180,10 +175,10 @@ foreach ($object in $InputObject) {
 }
 
 if ($Unique) {
-    $finalResult = $finalResult | Sort-Object -Property SenderName -Unique
+    $finalResult = $finalResult | Sort-Object -Property RecipientName,SenderName -Unique
 }
 else {
-    $finalResult = $finalResult | Sort-Object -Property SenderName
+    $finalResult = $finalResult | Sort-Object -Property RecipientName,SenderName
 }
 
 return $finalResult
