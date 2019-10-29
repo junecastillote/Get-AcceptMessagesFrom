@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.0
+.VERSION 1.0.1
 
 .GUID c7d3eeae-4307-4737-a36a-c7b1f14c197b
 
@@ -15,7 +15,7 @@
 
 .LICENSEURI
 
-.PROJECTURI https://github.com/junecastillote/Get-ExoAcceptMailFrom
+.PROJECTURI https://github.com/junecastillote/Get-AcceptMessagesFrom
 
 .ICONURI
 
@@ -78,11 +78,9 @@ Function Get-MembersRecursive {
                 $groupMembers += (Get-MembersRecursive $groupMember)
             }
             else {
-                #$memberObj | Add-Member -MemberType NoteProperty -Name # SenderMemberOf -Value $RecipientName
                 $groupMembers += $memberObj
             }
         }
-
     }
     $groupMembers = $groupMembers | Sort-Object -Property Name -Unique
     return $groupMembers
@@ -114,8 +112,6 @@ foreach ($object in $InputObject) {
                         SenderType     = $sender.RecipientTypeDetails
                         SenderEmail    = $sender.PrimarySMTPAddress
                         SenderJobTitle = $sender.Title
-                        # SenderPermission = 'Direct'
-                        # SenderMemberOf   = ''
                     }
                     $finalResult += (New-Object psobject -Property $properties)
                 }
@@ -133,8 +129,6 @@ foreach ($object in $InputObject) {
                             SenderType     = $sender.RecipientTypeDetails
                             SenderEmail    = $sender.PrimarySMTPAddress
                             SenderJobTitle = 'Not Applicable'
-                            # SenderPermission = 'Direct'
-                            # SenderMemberOf   = 'Not Applicable'
                         }
                         $finalResult += (New-Object psobject -Property $properties)
                     }
@@ -153,10 +147,8 @@ foreach ($object in $InputObject) {
                                 RecipientEmail     = $object.PrimarySMTPAddress
                                 SenderName     = $groupMember.Name
                                 SenderType     = $groupMember.RecipientTypeDetails
-                                # SenderPermission = 'Inherited'
                                 SenderEmail    = $groupMember.PrimarySMTPAddress
                                 SenderJobTitle = $groupMember.Title
-                                # SenderMemberOf   = $groupMember.# SenderMemberOf
                             }
                             $finalResult += (New-Object psobject -Property $properties)
                         }
@@ -165,15 +157,28 @@ foreach ($object in $InputObject) {
             }
         }
     }
+    else {
+        Write-Verbose "> [No Sender Restrictions]"
+        $properties = [ordered]@{
+            RecipientName      = $object.Name
+            RecipientEmail     = $object.PrimarySMTPAddress
+            SenderName     = ''
+            SenderType     = ''
+            SenderPermission = ''
+            SenderEmail    = ''
+            SenderJobTitle = ''
+        }
+        $finalResult += (New-Object psobject -Property $properties)
+    }
     ## increment counter
     $i = $i + 1
 }
 
 if ($Unique) {
-    $finalResult = $finalResult | Sort-Object -Property SenderName -Unique
+    $finalResult = $finalResult | Sort-Object -Property RecipientName,SenderName -Unique
 }
 else {
-    $finalResult = $finalResult | Sort-Object -Property SenderName
+    $finalResult = $finalResult | Sort-Object -Property RecipientName,SenderName
 }
 
 return $finalResult
